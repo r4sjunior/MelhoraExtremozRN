@@ -1,0 +1,39 @@
+{
+  "name": "melhora-extremoz-rn",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Mapa colaborativo dos problemas urbanos de Extremoz/RN: aponte, apoie, cobre.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:sql": "node supabase/tests/run.mjs",
+    "geodata": "node scripts/geodata.mjs",
+    "icons": "node scripts/icons.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@supabase/supabase-js": "^2.119.0",
+    "heic2any": "^0.0.4",
+    "maplibre-gl": "^6.17.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.15",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "adm-zip": "^0.6.1",
+    "mapshaper": "^0.7.101",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  }
+}
