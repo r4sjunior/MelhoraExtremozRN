@@ -102,6 +102,7 @@ export function criarBackendTeste(): Backend {
       return { id: u.id, email: 'teste@exemplo.local', nome: u.nome, nomeEscolhido: u.nomeEscolhido, adminCadastrado: u.admin, isAdmin: u.admin, suspenso: u.suspenso };
     },
     aoMudarSessao(cb) { aoMudar = cb; },
+    async googleAtivo() { return false; },
     async entrarGoogle() { throw new ErroRegra('No modo de teste, use o formulário de teste.'); },
     async entrarEmail() { throw new ErroRegra('No modo de teste, use o formulário de teste.'); },
     async entrarTeste(nome, admin) {

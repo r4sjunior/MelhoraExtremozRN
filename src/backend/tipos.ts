@@ -12,6 +12,8 @@ export interface Backend {
 
   sessao(): Promise<Sessao | null>;
   aoMudarSessao(cb: () => void): void;
+  /** O login com Google está ativado no servidor? */
+  googleAtivo(): Promise<boolean>;
   entrarGoogle(): Promise<void>;
   entrarEmail(email: string, captcha?: string): Promise<void>;
   /** Só no modo de teste: entra sem servidor de e-mail. */

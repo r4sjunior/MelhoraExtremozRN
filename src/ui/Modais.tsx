@@ -77,6 +77,8 @@ function Login() {
   const [captcha, setCaptcha] = useState('');
   const [nomeTeste, setNomeTeste] = useState('');
   const [adminTeste, setAdminTeste] = useState(false);
+  const [google, setGoogle] = useState(false);
+  useEffect(() => { backend.googleAtivo().then(setGoogle); }, []);
 
   const exige = () => { if (aceito) return true; setErroAceite(true); return false; };
   const marcar = (v: boolean) => { setAceito(v); if (v) { setErroAceite(false); gravarLocal('me_termos', VERSAO_TERMOS); } };
@@ -137,13 +139,17 @@ function Login() {
         </form>
       ) : (
         <>
-          <button type="button" className="btn" onClick={() => { if (exige()) backend.entrarGoogle().catch(() => aviso('Não foi possível abrir o login do Google. Tente de novo.')); }}>Entrar com Google</button>
-          <div className="ou">ou</div>
+          {google && (
+            <>
+              <button type="button" className="btn" onClick={() => { if (exige()) backend.entrarGoogle().catch(() => aviso('Não foi possível abrir o login do Google. Tente de novo.')); }}>Entrar com Google</button>
+              <div className="ou">ou</div>
+            </>
+          )}
           <form className="pilha" noValidate onSubmit={enviar}>
             <label><span className="rotulo">Seu e-mail</span><input type="text" inputMode="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="voce@exemplo.com" /></label>
             <Captcha aoToken={setCaptcha} />
             {erro && <p className="destaque alerta">{erro}</p>}
-            <button type="submit" className="btn claro" disabled={ocupado}>Receber link de acesso por e-mail</button>
+            <button type="submit" className={google ? 'btn claro' : 'btn'} disabled={ocupado}>Receber link de acesso por e-mail</button>
           </form>
         </>
       )}

@@ -76,6 +76,14 @@ export function criarBackendSupabase(url: string, chave: string, captchaSiteKey:
       });
     },
 
+    async googleAtivo() {
+      try {
+        const r = await fetch(`${url}/auth/v1/settings`, { headers: { apikey: chave } });
+        return r.ok && (await r.json())?.external?.google === true;
+      } catch {
+        return false;
+      }
+    },
     async entrarGoogle() {
       const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: redireciona() } });
       checa(error);
