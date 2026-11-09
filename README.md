@@ -48,7 +48,7 @@ Importe o repositório: o `vercel.json` já traz framework, rotas e cabeçalhos 
 ## Antes de divulgar
 
 - Revisão jurídica de `/termos` e `/privacidade`.
-- Conferir contatos em `src/dados/contatos.ts`. O telefone da Câmara vem de um edital de 2017.
+- Conferir contatos em `src/dados/contatos.ts`.
 - Conferir a divisão de zonas e os nomes em `scripts/localidades.mjs` (depois rode `npm run geodata`).
 - Trocar `public/compartilhar.png` se quiser outra imagem nas redes.
 

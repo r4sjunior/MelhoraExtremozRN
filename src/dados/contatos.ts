@@ -1,6 +1,6 @@
 // Fontes conferidas em 08/11/2026:
 // - Prefeitura: extremoz.rn.gov.br (rodapé do site, "A Prefeita", "Prefeitura Digital", "Secretarias e Órgãos")
-// - Câmara: endereço e telefone em documentos publicados no portal do TCE-RN (telefone citado em edital de 2017: confirmar)
+// - Câmara: endereço e telefone em documentos publicados no portal do TCE-RN (telefone confirmado pelo responsável do projeto em 08/11/2026)
 // - Eleitos: dados abertos do TSE, consulta de candidaturas 2024 (partido é o da eleição; pode ter mudado)
 
 export interface Canal { nome: string; desc: string; url: string }
